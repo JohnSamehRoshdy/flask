@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+
+
+
+
+{% block title %}
+My Post
+{% endblock %}
+
+{% block body %}
+    
+
+    
+<div class="container">
+    <div class="row">
+        
+        <div class="card mt-5 ms-3" style="width: 18rem;">
+            <img src="{{url_for('static',filename='/posts/images/'+ onepost.image)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{onepost.title}}</h5>
+              <p class="card-text">{{onepost.id}}</p>
+              <p class="card-text">{{onepost.body}}</p>
+              <a href="{{onepost.category.show_url}}" class="card-text">{{onepost.category.name}}</a>
+              <a href="{{url_for('posts.index')}}" class="btn btn-primary">Go back</a>
+            </div>
+          </div>
+          
+
+    </div>
+
+</div>
+{% endblock body %}

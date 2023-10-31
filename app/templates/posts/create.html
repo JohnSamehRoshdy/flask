@@ -1,0 +1,47 @@
+
+{% extends 'layouts/base.html' %}
+
+
+
+
+{% block title %}
+Create Post
+{% endblock %}
+
+{% block body %}
+<form method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Title</label>
+    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Body</label>
+    <input type="text" name="body" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Image</label>
+    <input type="file" name="image" class="form-control" id="image" aria-describedby="emailHelp">
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Category</label>
+    <select class="form-select" aria-label="Default select example" name="category_id">
+      <option selected value="" disabeled>Open this select menu</option>
+      
+      {% for category in categories %}
+      <option value="{{category.id}}">{{category.name}}</option>
+      {% endfor %}
+      
+    </select>
+    
+  </div>
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+    
+
+{% endblock body %}

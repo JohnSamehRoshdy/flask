@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block title %}
+Update Category
+{% endblock %}
+
+
+{% block body %}
+   
+    <form method="POST" enctype="multipart/form-data" style="margin: 50px; height: 390px;">
+        <div class="mb-3">
+            <label for="title" class="form-label">Name:</label>
+            <input type="text" id="title" name="name" value="{{ category.name }}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="body" class="form-label">Desc:</label>
+            <input type="text" id="body" name="desc" value="{{ category.desc }}" class="form-control">
+        </div>
+        <div>
+            <p>Currently Image: {{ category.image }}</p>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image:</label>
+            <input type="file" id="image" name="image" class="form-control">
+        </div >
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

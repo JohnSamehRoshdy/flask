@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+
+
+
+
+
+{% block title %}
+My Category
+{% endblock %}
+
+{% block body %}
+    
+
+    
+<div class="container">
+    <div class="row">
+        
+        <div class="card mt-5 ms-3" style="width: 18rem;">
+            <img src="{{url_for('static',filename='/categories/images/'+ onecategory.image)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{onecategory.name}}</h5>
+              <p class="card-text">{{onecategory.id}}</p>
+              <p class="card-text">{{onecategory.desc}}</p>
+              <a href="{{url_for('categories.index')}}" class="btn btn-primary">Go back</a>
+            </div>
+          </div>
+
+          <h1> Posts in this category </h1>
+          
+          {% for post in onecategory.posts  %}
+
+          <div class="card mt-5 ms-3" style="width: 18rem;">
+            <img src="{{url_for('static',filename='/posts/images/'+ post.image)}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{post.title}}</h5>
+              <p class="card-text">{{post.id}}</p>
+              <p class="card-text">{{post.body}}</p>
+              <a href="{{post.category.show_url}}" class="card-text">{{post.category.name}}</a>
+              <a href="{{url_for('posts.index')}}" class="btn btn-primary">Go back</a>
+            </div>
+          </div>
+            
+          {% endfor %}
+            
+          
+
+    </div>
+
+</div>
+{% endblock body %}
